@@ -2,16 +2,14 @@
 
 #include <iostream>
 
-Pessoa::Pessoa() {}
 
-Pessoa::Pessoa(std::string nomePessoa) : nome{nomePessoa} {}
-
-Pessoa::Pessoa(std::string nomePessoa, uint64_t cpfPessoa,
-               unsigned short idadePessoa)
-    : Pessoa{nomePessoa} {
+Pessoa::Pessoa(std::string& nomePessoa, uint64_t cpfPessoa,unsigned short idadePessoa)
+    : nome{nomePessoa}, cpf{cpfPessoa}, idade{idadePessoa}  {
     setCpf(cpfPessoa);
     setIdade(idadePessoa);
 }
+
+Pessoa::~Pessoa() {} // Implementação vazia do destrutor
 
 uint64_t Pessoa::getCpf() {
     // retorna uma cópia do cpf

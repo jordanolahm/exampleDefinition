@@ -11,8 +11,9 @@ class SalaAula;//Forward Declaration
 
 class Disciplina{
 	public:
-	Disciplina(std::string nome);
-		Disciplina(std::string nome, SalaAula* sala);
+		
+		Disciplina(std::string nome, SalaAula* sala, unsigned short int cargaHoraria,Pessoa* Professor);
+		
 		~Disciplina();
 
 		std::string getNome();
@@ -26,6 +27,9 @@ class Disciplina{
 
 		void setSalaAula(SalaAula* sala);
         SalaAula* getSalaAula();
+
+		unsigned long int getIdDisciplina(); 
+		void setIdDisciplina(unsigned long int id );
 
 		void imprimirDados(std::string& cabecalho, unsigned int cargaTotalCurso);
 
@@ -46,7 +50,7 @@ class Disciplina{
 		unsigned short int cargaHoraria;
 		Pessoa* professor;
 		SalaAula* sala;
-
+		// unsigned long int idDisciplina; 
 		std::list<ConteudoMinistrado*> conteudos;
 		// std::list<std::string*> conteudosMinistrados;
 };

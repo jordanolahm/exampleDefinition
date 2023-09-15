@@ -9,33 +9,27 @@
 
 #include "SalaAula.hpp"
 
-int main(){
-    // Pessoa prof1{"João", 11111111111, 40};
-    // Disciplina dis1{"C++", nullptr};
-    // dis1.setProfessor(&prof1);
-
-    // dis1.adicionarConteudoMinistrado("Ponteiros", 4);
-    // dis1.adicionarConteudoMinistrado("Referencias", 2);
-
-    // Console::imprimirDadosDisciplina(dis1);
-
-    Disciplina dis1("c++", nullptr); 
-    Disciplina dis2(new Disciplina("Java", nullptr));
-
-    SalaAula sala("lab info", 40); 
-    dis1.setSalaAula(&sala); 
-    dis2.setSalaAula(&sala); 
-
-
-    std::list<Disciplina*> disSala = sala.getDisciplinas(); 
-    std::list<Disciplina*> :: iterator it; 
+int main() {
     
-    for(it = disSala.begin(); it != disSala.end(); it++) {
-        std::cout << (*it)->getNome() << '\n';
-    }
+    // Criando disciplinas
+    Disciplina dis1 {"Matemática",nullptr, 40, nullptr};
+    Disciplina* dis2 = new Disciplina{"Matemática",nullptr, 40, nullptr};
+    
+    SalaAula sala{"Lab Info 1", 40};
+    dis1.setSalaAula(&sala);
+    dis2->setSalaAula(&sala);
 
-    delete dis2; 
-    std:: cout << "Fim do programa \n"; 
+    std::list<Disciplina*> disSala = sala.getDisciplinas();
+    std::list<Disciplina*>::iterator it;
+    for(it = disSala.begin(); it != disSala.end(); it++)
+        std::cout << (*it)->getNome() << std::endl;
+
+    delete dis2;
+    std::cout << "Fim do Programa" << std::endl;
+
+    // Liberando a memória alocada dinamicamente
+    
+    delete dis2;
 
     return 0;
 }

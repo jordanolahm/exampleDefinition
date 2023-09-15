@@ -1,20 +1,12 @@
 #include "Disciplina.hpp"
 #include <list>
 #include <iostream>
-
 #include "SalaAula.hpp"
 
 
+Disciplina::Disciplina(std::string nome, SalaAula* sala,  unsigned short int cargaHoraria, Pessoa* professor)
+    : nome{nome}, sala{nullptr} , cargaHoraria{cargaHoraria}, professor{nullptr}{}
 
-
-Disciplina::Disciplina(std::string nome)
-	:nome{nome},sala{nullptr} {
-}
-
-Disciplina::Disciplina(std::string nome, SalaAula* sala)
-        :Disciplina{nome} {
-    this->setSalaAula(sala);
-}
 
 Disciplina::~Disciplina() {
     //destrutor chama o limpar conteudo

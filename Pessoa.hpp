@@ -6,9 +6,10 @@
 
 class Pessoa {
    public:
-    Pessoa();
-    Pessoa(std::string nomePessoa);
-    Pessoa(std::string nomePessoa, uint64_t cpfPessoa, unsigned short idade);
+  
+    Pessoa(std::string& nome, uint64_t cpf, unsigned short idade);
+
+    ~Pessoa(); // Destrutor
 
     uint64_t getCpf();
     void setCpf(uint64_t novoCpf);
