@@ -12,32 +12,33 @@ class SalaAula;//Forward Declaration
 class Disciplina{
 	public:
 		
-		Disciplina(std::string nome, SalaAula* sala, unsigned short int cargaHoraria,Pessoa* Professor);
+		Disciplina(const std::string nome, SalaAula* sala, unsigned short int cargaHoraria,Pessoa* Professor);
 		
 		~Disciplina();
 
-		std::string getNome();
+		std::string getNome() const;
 		void setNome(std::string nome);
 		
-		int getCargaHoraria();
+		int getCargaHoraria() const;
 		void setCargaHoraria(unsigned int carga);
 
-		Pessoa* getProfessor();
+		Pessoa* getProfessor() const;
         void setProfessor(Pessoa* prof);
-
+		
+		SalaAula* getSalaAula() const;
 		void setSalaAula(SalaAula* sala);
-        SalaAula* getSalaAula();
+      
 
 		unsigned long int getIdDisciplina(); 
 		void setIdDisciplina(unsigned long int id );
 
 		void imprimirDados(std::string& cabecalho, unsigned int cargaTotalCurso);
 
-		void adicionarConteudoMinistrado(unsigned long id, std::string conteudo, unsigned short cargaHorariaConteudo);
+		void adicionarConteudoMinistrado(unsigned long id, const std::string conteudo, unsigned short cargaHorariaConteudo);
         void imprimirConteudosMinistrados();
 		
 		//obter lista conteudos ministrados
-		std::list<ConteudoMinistrado*>& getConteudos();
+		const std::list<ConteudoMinistrado*>& getConteudos() const;
 
 		//obter conteudo pelo id
 		void removerConteudoMinistrado(unsigned long id);

@@ -4,7 +4,7 @@
 #include "SalaAula.hpp"
 
 
-Disciplina::Disciplina(std::string nome, SalaAula* sala,  unsigned short int cargaHoraria, Pessoa* professor)
+Disciplina::Disciplina( const std::string nome, SalaAula* sala,  unsigned short int cargaHoraria, Pessoa* professor)
     : nome{nome}, sala{nullptr} , cargaHoraria{cargaHoraria}, professor{nullptr}{}
 
 
@@ -13,7 +13,7 @@ Disciplina::~Disciplina() {
     limparConteudos();
 }
 
-std::string Disciplina::getNome(){
+std::string Disciplina::getNome() const{
 	return nome;
 }
 
@@ -21,7 +21,7 @@ void Disciplina::setNome(std::string nome){
 	this->nome = nome;
 }
 
-int Disciplina::getCargaHoraria(){
+int Disciplina::getCargaHoraria() const{
 	return this->cargaHoraria;
 }
 
@@ -29,7 +29,7 @@ void Disciplina::setCargaHoraria(unsigned int carga){
 	this->cargaHoraria = carga;
 }
 
-Pessoa* Disciplina::getProfessor(){
+Pessoa* Disciplina::getProfessor() const{
     return this->professor;
 }
 
@@ -46,7 +46,7 @@ void Disciplina::setSalaAula(SalaAula* sala){
 }
 
 
-SalaAula* Disciplina::getSalaAula(){
+SalaAula* Disciplina::getSalaAula() const{
     return this->sala;
 }
 
@@ -60,7 +60,7 @@ void Disciplina::imprimirDados(std::string& cabecalho, unsigned int cargaTotalCu
     std::cout << "Professor: " << this->professor->getNome() << std::endl;
 }
 
-void Disciplina::adicionarConteudoMinistrado(unsigned long id, std::string conteudo, unsigned short cargaHorariaConteudo){
+void Disciplina::adicionarConteudoMinistrado(unsigned long id, const std::string conteudo, unsigned short cargaHorariaConteudo){
     this->conteudos.push_back(new ConteudoMinistrado{id,conteudo, cargaHorariaConteudo});
 }
 
@@ -73,7 +73,7 @@ void Disciplina::imprimirConteudosMinistrados(){
     }
 }
 
-std::list<ConteudoMinistrado*>& Disciplina::getConteudos(){
+const std::list<ConteudoMinistrado*>& Disciplina::getConteudos() const {
     return this->conteudos;
 }
 
