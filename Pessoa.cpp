@@ -3,7 +3,7 @@
 #include <iostream>
 
 
-Pessoa::Pessoa(std::string& nomePessoa, uint64_t cpfPessoa,unsigned short idadePessoa)
+Pessoa::Pessoa(const std::string& nomePessoa, const uint64_t cpfPessoa,unsigned short idadePessoa)
     : nome{nomePessoa}, cpf{cpfPessoa}, idade{idadePessoa}  {
     setCpf(cpfPessoa);
     setIdade(idadePessoa);
@@ -11,7 +11,7 @@ Pessoa::Pessoa(std::string& nomePessoa, uint64_t cpfPessoa,unsigned short idadeP
 
 Pessoa::~Pessoa() {} // Implementação vazia do destrutor
 
-uint64_t Pessoa::getCpf() {
+uint64_t Pessoa::getCpf() const {
     // retorna uma cópia do cpf
     return cpf;
 }
@@ -25,11 +25,11 @@ void Pessoa::setCpf(uint64_t novoCpf) {
     return;
 }
 
-std::string Pessoa::getNome() { return nome; }
+std::string Pessoa::getNome() const { return nome; }
 
 void Pessoa::setNome(std::string novoNome) { nome = novoNome; }
 
-unsigned short int Pessoa::getIdade() { return (unsigned short int)idade; }
+unsigned short int Pessoa::getIdade() const { return (unsigned short int)idade; }
 
 void Pessoa::setIdade(unsigned short int novaIdade) {
     if (novaIdade < 120)

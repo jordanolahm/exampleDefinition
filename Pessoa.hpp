@@ -7,17 +7,17 @@
 class Pessoa {
    public:
   
-    Pessoa(std::string& nome, uint64_t cpf, unsigned short idade);
+    Pessoa( const std::string& nome, const uint64_t cpf, unsigned short idade);
 
     ~Pessoa(); // Destrutor
 
-    uint64_t getCpf();
+    uint64_t getCpf() const;
     void setCpf(uint64_t novoCpf);
 
-    std::string getNome();
+    std::string getNome() const;
     void setNome(std::string novoNome);
 
-    unsigned short int getIdade();
+    unsigned short int getIdade() const;
     void setIdade(unsigned short novaIdade);
 
    private:
