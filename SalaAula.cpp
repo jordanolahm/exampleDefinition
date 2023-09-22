@@ -2,7 +2,7 @@
 #include "Disciplina.hpp"
 #include <algorithm>
 
-SalaAula::SalaAula(std::string nome, unsigned int capacidade)
+SalaAula::SalaAula(const std::string nome, unsigned int capacidade)
 	:nome{nome}, capacidade{capacidade}{
 }
 
@@ -13,7 +13,7 @@ SalaAula::~SalaAula() {
     }
 }
     
-std::string SalaAula::getNome(){
+std::string SalaAula::getNome() const{
 	return this->nome;
 }
 
@@ -21,7 +21,7 @@ void SalaAula::setNome(std::string nome){
 	this->nome = nome;
 }
 
-unsigned int SalaAula::getCapacidade(){
+unsigned int SalaAula::getCapacidade() const{
 	return this->capacidade;
 }
 
@@ -29,7 +29,7 @@ void SalaAula::setCapcidade(unsigned int capacidade){
 	this->capacidade = capacidade;
 }
 
-std::list<Disciplina*>& SalaAula::getDisciplinas(){
+const std::list<Disciplina*>& SalaAula::getDisciplinas() const{
     return disciplinasMinistradas;
 }
 
